@@ -12,5 +12,5 @@ sudo printf '%s\n' '[Unit]' 'Description=Scrip para apagado automatico de la ins
 sudo systemctl daemon-reload
 sudo systemctl enable apagado_automatico.service
 sudo systemctl start apagado_automatico.service
-#sudo systemctl status apagado_automatico.service
+sudo systemctl status apagado_automatico.service
 echo "apagado automático creado"
