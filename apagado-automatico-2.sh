@@ -8,7 +8,7 @@
 #pero se puede cambiarlo para cuantas horas se quiera
 sudo printf '%s\n' '#!/bin/bash' 'sleep 7200' 'sudo shutdown now' > /usr/bin/apagado.sh
 sudo chmod +x /usr/bin/apagado.sh
-sudo printf '%s\n' '[Unit]' 'Description=Scrip para apagado automatico de la instancia después de una hora' '' '[Service]' 'ExecStart=/usr/bin/apagado.sh' '' '[Install]' 'WantedBy=multi-user.target' > /lib/systemd/system/apagado-automatico.service
+sudo printf '%s\n' '[Unit]' 'Description=Scrip para apagado automatico de la instancia después de dos hora' '' '[Service]' 'ExecStart=/usr/bin/apagado.sh' '' '[Install]' 'WantedBy=multi-user.target' > /lib/systemd/system/apagado-automatico.service
 sudo systemctl daemon-reload
 sudo systemctl enable apagado-automatico.service
 sudo systemctl start apagado-automatico.service
