@@ -36,7 +36,7 @@ sudo apt install nvidia-container-toolkit -y
 sudo systemctl restart docker
 
 #https://github.com/NVIDIA/nvidia-docker/issues/1243
-
+#install codedeploy agent
 #!/bin/bash
 sudo apt update
 sudo apt install ruby-full -y
@@ -44,3 +44,13 @@ sudo apt install wget -y
 wget https://aws-codedeploy-us-east-1.s3.us-east-1.amazonaws.com/latest/install
 chmod +x ./install
 sudo ./install auto
+
+#install apagado automatico
+#!/bin/bash
+sudo printf '%s\n' '#!/bin/bash' 'sleep 3600' 'sudo shutdown now' > /usr/bin/apagado.sh
+sudo chmod +x /usr/bin/apagado.sh
+sudo printf '%s\n' '[Unit]' 'Description=Scrip para apagado automatico de la instancia después de una hora' '' '[Service]' 'ExecStart=/usr/bin/apagado.sh' '' '[Install]' 'WantedBy=multi-user.target' > /lib/systemd/system/apagado-automatico.service
+sudo systemctl daemon-reload
+sudo systemctl enable apagado-automatico.service
+sudo systemctl start apagado-automatico.service
+sudo systemctl status apagado-automatico.service
