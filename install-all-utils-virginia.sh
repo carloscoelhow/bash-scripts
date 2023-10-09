@@ -36,3 +36,11 @@ sudo apt install nvidia-container-toolkit -y
 sudo systemctl restart docker
 
 #https://github.com/NVIDIA/nvidia-docker/issues/1243
+
+#!/bin/bash
+sudo apt update
+sudo apt install ruby-full
+sudo apt install wget
+wget https://aws-codedeploy-us-east-1.s3.us-east-1.amazonaws.com/latest/install
+chmod +x ./install
+sudo ./install auto
